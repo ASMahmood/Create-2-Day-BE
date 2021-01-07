@@ -15,7 +15,8 @@
           { "text": "aliquip", "isCorrect": true },
           { "text": "enim", "isCorrect": false },
           { "text": "cillum", "isCorrect": false }
-        ]
+        ],
+        "providedAnswer": 1
       },
       {
         "duration": 180,
@@ -241,6 +242,68 @@
           { "text": "eiusmod", "isCorrect": true },
           { "text": "cillum", "isCorrect": false },
           { "text": "irure", "isCorrect": false }
+        ]
+      }
+    ]
+  },
+  {
+    "candidateName": "Otacon Abdul",
+    "name": "'JUST LIKE ONE OF MY JAPANESSE ANIMES' Test",
+    "_id": "59dttg54kjmpp2jk",
+    "examDate": "2021-01-07T10:32:42.271Z",
+    "isCompleted": false,
+    "totalDuration": 30,
+    "questions": [
+      {
+        "duration": 180,
+        "text": "Cupidatat dolor dolore anim non. Proident veniam mollit culpa ullamco proident ea pariatur amet ipsum. Sint ex eiusmod sit anim nostrud irure et et reprehenderit occaecat deserunt labore velit. Velit commodo magna tempor tempor cillum amet excepteur. Culpa incididunt est nulla sint. Dolore Lorem sunt deserunt tempor adipisicing cillum cupidatat commodo enim nulla.",
+        "img": "https://demo-res.cloudinary.com/image/upload/sample.jpg",
+        "answers": [
+          { "text": "ea", "isCorrect": false },
+          { "text": "Lorem", "isCorrect": true },
+          { "text": "adipisicing", "isCorrect": false },
+          { "text": "proident", "isCorrect": false }
+        ]
+      },
+      {
+        "duration": 180,
+        "text": "Proident proident amet ullamco veniam cupidatat ipsum occaecat magna anim laboris voluptate anim duis. Amet aliqua exercitation ex laborum laboris qui fugiat ut qui deserunt eiusmod. Adipisicing id amet officia ut est anim eu. In ad aliquip culpa id deserunt incididunt Lorem laborum. Proident officia eu Lorem ullamco dolor. Deserunt fugiat ullamco aliquip consequat anim eu laboris nisi et. Duis exercitation quis nulla pariatur eiusmod ad sit.",
+        "answers": [
+          { "text": "cupidatat", "isCorrect": false },
+          { "text": "eiusmod", "isCorrect": true },
+          { "text": "cillum", "isCorrect": false },
+          { "text": "irure", "isCorrect": false }
+        ]
+      },
+      {
+        "duration": 120,
+        "text": "Sit Lorem laboris ex consectetur non commodo est laboris excepteur pariatur excepteur mollit. Sit occaecat elit do officia. Cupidatat proident exercitation nulla deserunt occaecat deserunt nisi dolore laboris ex minim labore in anim. Aliquip magna ipsum qui aute aliquip pariatur. Aliquip labore qui veniam culpa officia amet ea voluptate quis in eu irure eu cillum. Cupidatat exercitation magna quis anim esse.",
+        "img": "https://demo-res.cloudinary.com/image/upload/sample.jpg",
+        "answers": [
+          { "text": "dolore", "isCorrect": false },
+          { "text": "magna", "isCorrect": true },
+          { "text": "sit", "isCorrect": false },
+          { "text": "qui", "isCorrect": false }
+        ]
+      },
+      {
+        "duration": 180,
+        "text": "Ut dolore ut amet velit laborum sunt exercitation velit et excepteur est. Ad ullamco velit officia nulla esse proident sint labore et. Id reprehenderit eu laboris cupidatat aute est do occaecat. Nulla pariatur aute culpa ullamco velit ullamco id ea voluptate enim in in pariatur.",
+        "answers": [
+          { "text": "excepteur", "isCorrect": false },
+          { "text": "et", "isCorrect": true },
+          { "text": "sunt", "isCorrect": false },
+          { "text": "mollit", "isCorrect": false }
+        ]
+      },
+      {
+        "duration": 60,
+        "text": "Sunt elit nisi consectetur officia Lorem cillum ea consectetur ullamco eu. Labore in occaecat est ad consequat non ipsum qui commodo. Sit incididunt nulla eiusmod et dolor id dolor in veniam eu.",
+        "answers": [
+          { "text": "nostrud", "isCorrect": false },
+          { "text": "aliquip", "isCorrect": true },
+          { "text": "enim", "isCorrect": false },
+          { "text": "cillum", "isCorrect": false }
         ]
       }
     ]

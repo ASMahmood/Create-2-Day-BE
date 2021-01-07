@@ -46,4 +46,26 @@ Router.post("/start", async (req, res) => {
   }
 });
 
+Router.post("/:examID/answer", async (req, res) => {
+  try {
+    //GET EXAM DATABASE
+    const examsDB = await readExam();
+    //GETTING OUR EXAM FROM THE REQ.PARAMS
+    const selectedExamIndex = examsDB.findIndex(
+      (exam) => exam._id === req.params.examID
+    );
+    //IF/ELSE
+    if (selectedExamIndex !== -1) {
+      examsDB[selectedExamIndex].questions[req.body.question].providedAnswer =
+        req.body.answer;
+      await writeExam(examsDB);
+      res.send("🎉 Answer recieved! 🎉");
+    } else {
+      res.send("Couldn't find this exam 🥺");
+    }
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 module.exports = Router;
