@@ -27,24 +27,32 @@ Router.post("/start", async (req, res) => {
       //GET QUESTIONS FROM RANDOM INDEXES ABOVE
       selectedQuestions.forEach((index) => {
         actualQuestions.push(questionsDB[index]);
-
         examDuration += questionsDB[index].duration;
       });
     } catch (error) {
       console.log(error);
     }
-    //PUSH EXAM OBJECT TO DATABASE
-    examsDB.push({
+    //CREATE OBJECT TO ADD TO DATABASE
+    const examObject = {
       ...req.body,
       _id: uniqid(),
       examDate: new Date(),
       isCompleted: false,
       totalDuration: examDuration,
+      score: 0,
       questions: actualQuestions,
-    });
+    };
+    //PUSH EXAM OBJECT TO DATABASE
+    examsDB.push(examObject);
     //OVERWRITE OLD DB WITH NEW DB
     await writeExam(examsDB);
-    res.send("Added! Pog!");
+    //CREATE QUESTIONS ARRAY WITHOUT IS_CORRECT
+    const examResponse = { ...examObject };
+    examResponse.questions.forEach((question) => {
+      question.answers.forEach((answer) => delete answer.isCorrect);
+    });
+    //SEND RESPONSE
+    res.status(201).send(examResponse);
   } catch (error) {
     console.log(error);
   }
@@ -60,10 +68,25 @@ Router.post("/:examID/answer", async (req, res) => {
     );
     //IF/ELSE
     if (selectedExamIndex !== -1) {
-      examsDB[selectedExamIndex].questions[req.body.question].providedAnswer =
-        req.body.answer;
-      await writeExam(examsDB);
-      res.send("🎉 Answer recieved! 🎉");
+      if (
+        examsDB[selectedExamIndex].questions[req.body.question].providedAnswer
+      ) {
+        res.send("🎉 Already answered 🎉");
+      } else {
+        examsDB[selectedExamIndex].questions[req.body.question].providedAnswer =
+          req.body.answer;
+        //CALCULATE CURRENT SCORE
+        if (
+          examsDB[selectedExamIndex].questions[req.body.question].answers[
+            req.body.answer
+          ].isCorrect === true
+        ) {
+          examsDB[selectedExamIndex].score += 1;
+        }
+        //OVERWRITE DATABASE
+        await writeExam(examsDB);
+        res.send("🎉 Answer recieved! 🎉");
+      }
     } else {
       res.send("Couldn't find this exam 🥺");
     }
@@ -77,14 +100,6 @@ Router.get("/:examID", async (req, res) => {
     //GETTING SELECTED EXAM
     const examsDB = await readExam();
     const selectedExam = examsDB.find((exam) => exam._id === req.params.examID);
-    //CALCULATE CURRENT SCORE
-    let score = 0;
-    selectedExam.questions.forEach((question) => {
-      if (question.answers[question.providedAnswer].isCorrect === true) {
-        score += 1;
-      }
-    });
-    selectedExam.score = score;
     selectedExam.isCompleted = true;
     res.send(selectedExam);
   } catch (error) {
