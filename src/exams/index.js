@@ -11,6 +11,8 @@ Router.post("/start", async (req, res) => {
     const questionsDB = await readQuestions();
     //CREATE VARIABLE FOR EXAM QUESTIONS
     const actualQuestions = [];
+    //CREATE VARIABLE FOR EXAM DURATION
+    let examDuration = 0;
     //GET RANDOM QUESTION INDEXES
     try {
       const selectedQuestions = [];
@@ -25,6 +27,8 @@ Router.post("/start", async (req, res) => {
       //GET QUESTIONS FROM RANDOM INDEXES ABOVE
       selectedQuestions.forEach((index) => {
         actualQuestions.push(questionsDB[index]);
+
+        examDuration += questionsDB[index].duration;
       });
     } catch (error) {
       console.log(error);
@@ -35,7 +39,7 @@ Router.post("/start", async (req, res) => {
       _id: uniqid(),
       examDate: new Date(),
       isCompleted: false,
-      totalDuration: 30,
+      totalDuration: examDuration,
       questions: actualQuestions,
     });
     //OVERWRITE OLD DB WITH NEW DB

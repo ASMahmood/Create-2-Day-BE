@@ -11,5 +11,5 @@ server.use(express.json());
 server.use("/exams", examsRouter);
 
 server.listen(port, () => {
-  console.log("Server currently getting chased by ", port, " doomguys");
+  console.log("Doomguy is currently slaying ", port, " thots");
 });
