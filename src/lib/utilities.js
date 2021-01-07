@@ -25,4 +25,5 @@ module.exports = {
   readExam: async () => readDB(examPath),
   writeExam: async (data) => writeDB(examPath, data),
   readQuestions: async () => readDB(questionsPath),
+  writeQuestions: async (data) => writeDB(questionsPath, data),
 };
